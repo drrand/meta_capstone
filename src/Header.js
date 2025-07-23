@@ -1,6 +1,6 @@
 import Nav from "./Nav";
 import logo from './images/Logo.svg'
-
+import './Header.css';
 
 const Header = () => {
     return(

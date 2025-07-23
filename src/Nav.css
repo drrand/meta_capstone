@@ -1,0 +1,25 @@
+nav ul {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-left: 0;
+
+}
+
+nav li {
+  list-style: none;
+
+  color: #333;
+
+  /* SECTION TITLE */
+  font-family: Karla;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+
+  padding-left: 0;
+}
