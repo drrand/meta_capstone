@@ -1,0 +1,16 @@
+#testimonials .test_card {
+  background-color: #fff;
+  padding: 20px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 4px;
+  height: 260px;
+  border-radius: 16px;
+}
+
+.test_card p {
+  overflow: hidden;
+}
