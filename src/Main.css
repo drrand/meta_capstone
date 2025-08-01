@@ -14,13 +14,12 @@
   justify-content: space-around;
 }
 
-
 .text-section {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    height: fit-content;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+  color: white;
 }
 
 .hero h1 {
@@ -28,21 +27,21 @@
   line-height: 80%;
 }
 .hero img {
-    position: relative;
-    top: 36px;
+  position: relative;
+  top: 36px;
 }
 
 button {
-    background:#f4ce14;
-    color:#495e57;
-    border-radius: 16px;
-    border: none;
-    height: 60px;
-    width: 200px;
+  background: #f4ce14;
+  color: #495e57;
+  border-radius: 16px;
+  border: none;
+  height: 60px;
+  width: 200px;
 
-    font-size: 18px;
-    font-weight: 500;
-    font-family: Karla;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Karla;
 }
 
 .Specials {
@@ -70,14 +69,13 @@ button {
 }
 
 #testimonials {
-  background-color: #EDEFEE;
+  background-color: #edefee;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 40px 0;
-
 }
 
 .testimonial_row {
@@ -93,12 +91,12 @@ button {
   width: 100%;
   padding: 20px 0px;
   h2 {
-    color:#f4ce14;
+    color: #f4ce14;
   }
-  h5, p {
+  h5,
+  p {
     color: white;
   }
-  
 }
 
 .about .section-wrapper {
@@ -111,6 +109,3 @@ button {
   gap: 75px;
   position: relative;
 }
-
-
-

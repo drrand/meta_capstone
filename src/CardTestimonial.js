@@ -1,4 +1,4 @@
-import "./Card_Testimonial.css";
+import "./CardTestimonial.css";
 
 const TestimonialCard = ({src, FirstName, Review_Text, stars}) => {
         let starString = "";
