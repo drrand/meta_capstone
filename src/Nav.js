@@ -1,14 +1,15 @@
+import { Link } from 'react-router';
 import './Nav.css';
 
 const Nav = () => {
     return(
         <nav>
             <ul>
-                <li><a>Home</a></li>
+                <li><Link className="navEl" to="/">Home</Link></li>
                 <li><a>About</a></li>
                 <li><a>Menu</a></li>
                 <li><a>Reservations</a></li>
-                <li><a>Order Online</a></li>
+                <li><Link className="navEl" to="/OrderOnline">Order Online</Link></li>
                 <li><a>Login</a></li>
             </ul>
         </nav>

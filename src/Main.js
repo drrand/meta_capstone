@@ -1,18 +1,15 @@
+import { Route, Routes } from 'react-router';
 import './Main.css';
-import Hero from './Hero';
-import Specials from './Specials'
-import Testimonials from './Testimonials';
-import About from './About';
+import Homepage from './Homepage';
+import OrderOnline from './OrderOnline';
+
 
 const Main = () => {
     return (
-        <main>
-            <Hero />
-            <Specials />
-            <Testimonials />
-            <About />
-
-        </main>
+        <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/OrderOnline" element={<OrderOnline />} />
+        </Routes>
     )
 }
 
