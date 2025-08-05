@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
+import AvailableTimes from "./AvailableTimes";
 
-const BookingForm = () => {
-
-    // const [formState, setFormState] = useState({
-    //     resDate: '',
-    //     resTime: '',
-    //     guests: '',
-    //     occasion: ''
-    // });
+const BookingForm = ({availableTimes, updateTimes}) => {
 
     const [resDate, setResDate] = useState('');
     function handleResDateChange(event) {
@@ -19,6 +13,7 @@ const BookingForm = () => {
     function handleResTimeChange(event) {
         const {value} = event.target;
         setResTime(value);
+        // updateTimes(value);
     }
 
     const [guestNum, setGuestNum] = useState();
@@ -33,15 +28,11 @@ const BookingForm = () => {
         setOccasion(value);
     }
 
-    // function handleChange(event) {
-    //     const { name, value } = event.target;
-    //     // Handle form changes
-    //     setFormState((prevState) => (
-    //         {...prevState,[name]: value  } 
-    //     ))
-    // }
+    function handleSubmit(event) {
+        event.preventDefault();
+        updateTimes(resTime);
+    }
 
-    // useEffect(() => console.log(formState), [formState])
     useEffect(()=>console.log(resDate),[resDate])
     useEffect(()=>console.log(resTime),[resTime])
     useEffect(()=>console.log(guestNum),[guestNum])
@@ -68,12 +59,7 @@ const BookingForm = () => {
                 onChange={(event) =>handleResTimeChange(event)}
                 value={resTime}
                 >
-                <option>17:00</option>
-                <option>18:00</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
-                <option>22:00</option>
+                <AvailableTimes availableTimes={availableTimes}/>
             </select>
             <label htmlFor="guests">Number of guests</label>
             <input
@@ -95,7 +81,10 @@ const BookingForm = () => {
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
-            <input type="submit" value="Make Your reservation" />
+            <input 
+                type="submit" 
+                value="Make Your reservation"
+                onClick={(event) => handleSubmit(event)} />
         </form>
     )
 }
