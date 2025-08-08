@@ -1,5 +1,5 @@
 
-const ConfirmationBooking = ({ submitForm }) => {
+const ConfirmationBooking = ({ resDate, resTime, guestNum, occasion }) => {
 
     return (
         <>
@@ -13,19 +13,19 @@ const ConfirmationBooking = ({ submitForm }) => {
                     <tbody>
                         <tr>
                             <td>Date:</td>
-                            <td></td>
+                            <td>{ resDate ? resDate : "Unspecified" }</td>
                         </tr>
                         <tr>
                             <td>Time:</td>
-                            <td></td>
+                            <td>{ resTime ? resTime : "Unspecified" }</td>
                         </tr>
                         <tr>
                             <td>Number of Guests:</td>
-                            <td></td>
+                            <td>{ guestNum ? guestNum : "Unspecified" }</td>
                         </tr>
                         <tr>
                             <td>Occasion:</td>
-                            <td></td>
+                            <td>{ occasion ? occasion : "Unspecified" }</td>
                         </tr>
                     </tbody>
                 </table>

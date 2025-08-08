@@ -4,7 +4,7 @@ import './Main.css';
 import Homepage from './Homepage';
 import OrderOnline from './OrderOnline';
 import BookingPage from './BookingPage';
-import { useState, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import ConfirmedBooking from './ConfirmedBooking';
 
 // "API Code" ————————————————————————————————————————————
@@ -50,21 +50,19 @@ const Main = () => {
 
     const navigate = useNavigate();
 
+    let confirmationData = {}; 
+    //     resDate: "unspecified",
+    //     resTime: "unspecified",
+    //     guestNum: "unspecified",
+    //     occasion: "unspecified"
+    // };
+
     function submitForm(formData) {
         if (submitAPI(formData)) {
-            navigate('/ConfirmedBooking')
+            confirmationData = formData;
+            navigate('/ConfirmedBooking');
         }
     }
-    // // Booking Form Data ——————————————————————————————————————————
-    // const [resDate, setResDate] = useState('');
-    // function handleResDateChange(event) {
-    //     const { value } = event.target;
-    //     setResDate(value);
-    //     const selectedDate = new Date(value)
-    //     updateTimes(selectedDate);
-    // }
-
-    // // END Booking Form Data ——————————————————————————————————————
 
     const today = new Date();
 
@@ -93,7 +91,7 @@ const Main = () => {
             <Route path="/" element={<Homepage />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
             <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm} />} />
-            <Route path="/ConfirmedBooking" element={<ConfirmedBooking />} />
+            <Route path="/ConfirmedBooking" element={<ConfirmedBooking confirmationData={confirmationData}/>} />
         </Routes>
     )
 }
