@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import AvailableTimes from "./AvailableTimes";
 
-const BookingForm = ({ 
-    availableTimes, 
-    updateTimes, 
+const BookingForm = ({
+    availableTimes,
+    updateTimes,
     submitAPI,
     submitForm
-  }) => {
+}) => {
 
     const [resDate, setResDate] = useState('');
     function handleResDateChange(event) {
@@ -18,19 +18,19 @@ const BookingForm = ({
 
     const [resTime, setResTime] = useState();
     function handleResTimeChange(event) {
-        const {value} = event.target;
+        const { value } = event.target;
         setResTime(value);
     }
 
     const [guestNum, setGuestNum] = useState();
     function handleGuestNumChange(event) {
-        const {value} = event.target;
+        const { value } = event.target;
         setGuestNum(value);
     }
 
     const [occasion, setOccasion] = useState();
     function handleOccasionChange(event) {
-        const {value} = event.target;
+        const { value } = event.target;
         setOccasion(value);
     }
 
@@ -43,13 +43,13 @@ const BookingForm = ({
                 resTime: resTime,
                 guestNum: guestNum,
                 occasion: occasion
-        })
+            })
     }
 
-    useEffect(()=>console.log(resDate),[resDate])
-    useEffect(()=>console.log(resTime),[resTime])
-    useEffect(()=>console.log(guestNum),[guestNum])
-    useEffect(()=>console.log(occasion),[occasion])
+    useEffect(() => console.log(resDate), [resDate])
+    useEffect(() => console.log(resTime), [resTime])
+    useEffect(() => console.log(guestNum), [guestNum])
+    useEffect(() => console.log(occasion), [occasion])
 
     return (
         <form style={{
@@ -69,10 +69,10 @@ const BookingForm = ({
             <select
                 name="resTime"
                 id="resTime"
-                onChange={(event) =>handleResTimeChange(event)}
+                onChange={(event) => handleResTimeChange(event)}
                 value={resTime}
-                >
-                <AvailableTimes availableTimes={availableTimes}/>
+            >
+                <AvailableTimes availableTimes={availableTimes} />
             </select>
             <label htmlFor="guests">Number of guests</label>
             <input
@@ -94,8 +94,8 @@ const BookingForm = ({
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
-            <input 
-                type="submit" 
+            <input
+                type="submit"
                 value="Make Your reservation"
                 onClick={(event) => handleSubmit(event)} />
         </form>
