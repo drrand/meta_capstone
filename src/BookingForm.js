@@ -74,7 +74,7 @@ const BookingForm = ({
                 min="1"
                 max="10"
                 id="guests"
-                onChange={handleGuestNumChange}
+                onChange={(event) => handleGuestNumChange(event)}
                 value={guestNum}
             />
             <label htmlFor="occasion">Occasion</label>
