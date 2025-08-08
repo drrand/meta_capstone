@@ -1,14 +1,13 @@
 
 
 
-const AvailableTimes = ({availableTimes}) => {
-  
+const AvailableTimes = ({availableTimes = []}) => {
 
     return (
         <>
            {
             availableTimes.map((time) => (
-                <option index={time}>{time}</option>
+                <option key={time}>{time}</option>
             )
          )
         }
