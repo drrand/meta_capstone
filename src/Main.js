@@ -60,16 +60,8 @@ const Main = () => {
 
     const navigate = useNavigate();
 
-    let confirmationData = {}; 
-    //     resDate: "unspecified",
-    //     resTime: "unspecified",
-    //     guestNum: "unspecified",
-    //     occasion: "unspecified"
-    // };
-
     function submitForm(formData) {
         if (submitAPI(formData)) {
-            confirmationData = formData;
             navigate('/ConfirmedBooking');
         }
     }
@@ -101,7 +93,7 @@ const Main = () => {
             <Route path="/" element={<Homepage />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
             <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm} formState={formState} setFormState={setFormState} />} />
-            <Route path="/ConfirmedBooking" element={<ConfirmedBooking confirmationData={confirmationData}/>} />
+            <Route path="/ConfirmedBooking" element={<ConfirmedBooking  formState={formState}/>} />
         </Routes>
     )
 }
