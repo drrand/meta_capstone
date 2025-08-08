@@ -11,7 +11,7 @@ const BookingForm = ({
     function handleResDateChange(event) {
         const { value } = event.target;
         setResDate(value);
-        const selectedDate = new Date(value)
+        const selectedDate = new Date(value);
         updateTimes(selectedDate);
     }
 
@@ -19,7 +19,6 @@ const BookingForm = ({
     function handleResTimeChange(event) {
         const {value} = event.target;
         setResTime(value);
-        // updateTimes(value);
     }
 
     const [guestNum, setGuestNum] = useState();

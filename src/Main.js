@@ -84,8 +84,8 @@ const Main = () => {
     // const [state, dispatch] = useReducer(reducer, initialState);
     const [availableTimes, dispatch] = useReducer(timesReducer, initialTimes);
 
-    function updateTimes(submittedTime) {
-        
+    function updateTimes(date) {
+        const newTimes = date;
         dispatch({ type: 'UPDATE_TIMES', payload: newTimes })
 
     }
@@ -96,7 +96,7 @@ const Main = () => {
             <Route path="/" element={<Homepage />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
             <Route path="/Reservations" element={<BookingPage />} />
-            <Route path="/ConfirmedBooking" element={<ConfirmedBooking />} />
+            <Route path="/ConfirmedBooking" element={<ConfirmedBooking updateTimes={updateTimes}/>} />
         </Routes>
     )
 }
