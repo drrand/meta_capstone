@@ -13,7 +13,7 @@ const Hero = () => {
                         <Button text="Reserve a Table" />
                     </div>
                     <div className='column2'>
-                        <img src={heroImg} alt="Chef presenting food"></img>
+                        <img src={heroImg} alt="Image of chef presenting food"></img>
                     </div>
             </section>
     )

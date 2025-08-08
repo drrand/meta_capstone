@@ -5,7 +5,7 @@ import OrderOnline from './OrderOnline';
 import BookingPage from './BookingPage';
 import { useReducer } from 'react';
 
-export function initializeTimes() {
+function initializeTimes() {
     const timesArray = [
         "17:00",
         "18:00",
@@ -17,11 +17,10 @@ export function initializeTimes() {
     return (timesArray)
 }
 
+const initialTimes = initializeTimes();
+
+
 const Main = () => {
-    
-    
-    const initialTimes = initializeTimes();
-    
     
     function timesReducer(availableTimes, action) {
         switch (action.type) {
