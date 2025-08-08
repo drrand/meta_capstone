@@ -49,6 +49,13 @@ export function initializeTimes(date) {
 const Main = () => {
     // State Lifted from Booking Form
 
+        const [formState, setFormState] = useState({
+        resDate: '',
+        resTime: '',
+        guests: '',
+        occasion: ''
+    });
+
     // End State Lift
 
     const navigate = useNavigate();
@@ -93,7 +100,7 @@ const Main = () => {
         <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
-            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm}  />} />
+            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm} formState={formState} setFormState={setFormState} />} />
             <Route path="/ConfirmedBooking" element={<ConfirmedBooking confirmationData={confirmationData}/>} />
         </Routes>
     )

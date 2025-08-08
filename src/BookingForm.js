@@ -4,16 +4,11 @@ import AvailableTimes from "./AvailableTimes";
 const BookingForm = ({
     availableTimes,
     updateTimes,
+    formState,
+    setFormState,
     submitAPI,
     submitForm
 }) => {
-
-    const [formState, setFormState] = useState({
-        resDate: '',
-        resTime: '',
-        guests: '',
-        occasion: ''
-    });
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -22,8 +17,6 @@ const BookingForm = ({
             {...prevState,[name]: value  } 
         ))
     }
-
-    useEffect(() => console.log(formState), [formState])
 
     // const [resDate, setResDate] = useState('');
     // function handleResDateChange(event) {
