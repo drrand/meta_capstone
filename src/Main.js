@@ -71,7 +71,6 @@ const Main = () => {
 
     const initialTimes = initializeTimes(today);
 
-
     function timesReducer(state, action) {
         switch (action.type) {
             case 'UPDATE_TIMES':
@@ -85,9 +84,8 @@ const Main = () => {
     const [state, dispatch] = useReducer(timesReducer, initialTimes);
 
     function updateTimes(date) {
-        const newTimes = date;
+        const newTimes = fetchAPI(date);
         dispatch({ type: 'UPDATE_TIMES', payload: newTimes })
-
     }
 
 
