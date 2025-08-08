@@ -5,6 +5,7 @@ const BookingForm = ({
     availableTimes, 
     updateTimes, 
     submitAPI,
+    submitForm
   }) => {
 
     const [resDate, setResDate] = useState('');
@@ -35,7 +36,14 @@ const BookingForm = ({
 
     function handleSubmit(event) {
         event.preventDefault();
-        updateTimes(resTime);
+        // updateTimes(resDate);
+        submitForm(
+            {
+                resDate: resDate,
+                resTime: resTime,
+                guestNum: guestNum,
+                occasion: occasion
+        })
     }
 
     useEffect(()=>console.log(resDate),[resDate])

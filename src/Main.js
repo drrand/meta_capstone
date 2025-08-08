@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router';
+import { Route, Routes, } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import './Main.css';
 import Homepage from './Homepage';
 import OrderOnline from './OrderOnline';
@@ -56,6 +57,13 @@ export function initializeTimes(date) {
 
 const Main = () => {
 
+    const navigate = useNavigate();
+
+    function submitForm(formData) {
+        if (submitAPI(formData)) {
+            navigate('/ConfirmedBooking')
+        }
+    }
     // // Booking Form Data ——————————————————————————————————————————
     // const [resDate, setResDate] = useState('');
     // function handleResDateChange(event) {
@@ -88,12 +96,12 @@ const Main = () => {
         dispatch({ type: 'UPDATE_TIMES', payload: newTimes })
     }
 
-
+    
     return (
         <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
-            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state}/>} />
+            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm} />} />
             <Route path="/ConfirmedBooking" element={<ConfirmedBooking />} />
         </Routes>
     )
