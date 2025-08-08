@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import AvailableTimes from "./AvailableTimes";
 
-const BookingForm = ({ availableTimes, updateTimes }) => {
+const BookingForm = ({ availableTimes, updateTimes, submitAPI }) => {
 
     const [resDate, setResDate] = useState('');
     function handleResDateChange(event) {
         const { value } = event.target;
         setResDate(value);
+        const selectedDate = new Date(value)
+        updateTimes(selectedDate);
     }
 
     const [resTime, setResTime] = useState();
     function handleResTimeChange(event) {
         const { value } = event.target;
         setResTime(value);
-        // updateTimes(value);
     }
 
     const [guestNum, setGuestNum] = useState();
@@ -30,7 +31,9 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        updateTimes(resTime);
+        updateTimes();
+        console.log(submitAPI([resDate, resTime, occasion, guestNum]));
+        console.log('Reserved')
     }
 
     // useEffect(() => console.log(`The Date Selected is ${resDate}`), [resDate])
