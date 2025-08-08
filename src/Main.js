@@ -4,7 +4,7 @@ import './Main.css';
 import Homepage from './Homepage';
 import OrderOnline from './OrderOnline';
 import BookingPage from './BookingPage';
-import { useEffect, useReducer } from 'react';
+import { useState, useReducer } from 'react';
 import ConfirmedBooking from './ConfirmedBooking';
 
 // "API Code" ————————————————————————————————————————————
@@ -41,12 +41,15 @@ const submitAPI = function (formData) {
 
 
 export function initializeTimes(date) {
-
+    
     return fetchAPI(date);
-
+    
 }
 
 const Main = () => {
+    // State Lifted from Booking Form
+
+    // End State Lift
 
     const navigate = useNavigate();
 
@@ -90,7 +93,7 @@ const Main = () => {
         <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
-            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm} />} />
+            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm}  />} />
             <Route path="/ConfirmedBooking" element={<ConfirmedBooking confirmationData={confirmationData}/>} />
         </Routes>
     )

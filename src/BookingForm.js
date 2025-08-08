@@ -8,48 +8,65 @@ const BookingForm = ({
     submitForm
 }) => {
 
-    const [resDate, setResDate] = useState('');
-    function handleResDateChange(event) {
-        const { value } = event.target;
-        setResDate(value);
-        const selectedDate = new Date(value);
-        updateTimes(selectedDate);
+    const [formState, setFormState] = useState({
+        resDate: '',
+        resTime: '',
+        guests: '',
+        occasion: ''
+    });
+
+    function handleChange(event) {
+        const { name, value } = event.target;
+        // Handle form changes
+        setFormState((prevState) => (
+            {...prevState,[name]: value  } 
+        ))
     }
 
-    const [resTime, setResTime] = useState();
-    function handleResTimeChange(event) {
-        const { value } = event.target;
-        setResTime(value);
-    }
+    useEffect(() => console.log(formState), [formState])
 
-    const [guestNum, setGuestNum] = useState();
-    function handleGuestNumChange(event) {
-        const { value } = event.target;
-        setGuestNum(value);
-    }
+    // const [resDate, setResDate] = useState('');
+    // function handleResDateChange(event) {
+    //     const { value } = event.target;
+    //     setResDate(value);
+    //     const selectedDate = new Date(value);
+    //     updateTimes(selectedDate);
+    // }
 
-    const [occasion, setOccasion] = useState();
-    function handleOccasionChange(event) {
-        const { value } = event.target;
-        setOccasion(value);
-    }
+    // const [resTime, setResTime] = useState();
+    // function handleResTimeChange(event) {
+    //     const { value } = event.target;
+    //     setResTime(value);
+    // }
+
+    // const [guestNum, setGuestNum] = useState();
+    // function handleGuestNumChange(event) {
+    //     const { value } = event.target;
+    //     setGuestNum(value);
+    // }
+
+    // const [occasion, setOccasion] = useState();
+    // function handleOccasionChange(event) {
+    //     const { value } = event.target;
+    //     setOccasion(value);
+    // }
 
     function handleSubmit(event) {
         event.preventDefault();
 
         submitForm(
             {
-                resDate: resDate,
-                resTime: resTime,
-                guestNum: guestNum,
-                occasion: occasion
+                resDate: formState.resDate,
+                resTime: formState.resTime,
+                guestNum: formState.guestNum,
+                occasion: formState.occasion
             })
     }
 
-    useEffect(() => console.log(resDate), [resDate])
-    useEffect(() => console.log(resTime), [resTime])
-    useEffect(() => console.log(guestNum), [guestNum])
-    useEffect(() => console.log(occasion), [occasion])
+    // useEffect(() => console.log(resDate), [resDate])
+    // useEffect(() => console.log(resTime), [resTime])
+    // useEffect(() => console.log(guestNum), [guestNum])
+    // useEffect(() => console.log(occasion), [occasion])
 
     return (
         <form style={{
@@ -62,15 +79,15 @@ const BookingForm = ({
                 name="resDate"
                 type="date"
                 id="resDate"
-                onChange={(event) => handleResDateChange(event)}
-                value={resDate}
+                onChange={handleChange}
+                value={formState.resDate}
             />
             <label htmlFor="resTime">Choose time</label>
             <select
                 name="resTime"
                 id="resTime"
-                onChange={(event) => handleResTimeChange(event)}
-                value={resTime}
+                onChange={handleChange}
+                value={formState.resTime}
             >
                 <AvailableTimes availableTimes={availableTimes} />
             </select>
@@ -82,14 +99,15 @@ const BookingForm = ({
                 min="1"
                 max="10"
                 id="guests"
-                onChange={(event) => handleGuestNumChange(event)}
-                value={guestNum}
+                onChange={handleChange}
+                value={formState.guestNum}
             />
             <label htmlFor="occasion">Occasion</label>
             <select
                 name="occasion"
                 id="occasion"
-                onChange={handleOccasionChange}
+                onChange={handleChange}
+                value={formState.occasion}
             >
                 <option>Birthday</option>
                 <option>Anniversary</option>
