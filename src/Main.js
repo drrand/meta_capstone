@@ -85,10 +85,9 @@ const Main = () => {
     const [availableTimes, dispatch] = useReducer(timesReducer, initialTimes);
 
     function updateTimes(submittedTime) {
-        const submittedTme = submittedTime;
-        const newTimes= availableTimes;
+        
         dispatch({ type: 'UPDATE_TIMES', payload: newTimes })
-        return (availableTimes)
+
     }
 
 
