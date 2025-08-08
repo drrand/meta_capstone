@@ -36,7 +36,7 @@ const BookingForm = ({
 
     function handleSubmit(event) {
         event.preventDefault();
-        // updateTimes(resDate);
+
         submitForm(
             {
                 resDate: resDate,

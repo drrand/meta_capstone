@@ -96,7 +96,7 @@ const Main = () => {
         dispatch({ type: 'UPDATE_TIMES', payload: newTimes })
     }
 
-    
+
     return (
         <Routes>
             <Route path="/" element={<Homepage />} />
