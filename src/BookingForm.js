@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import AvailableTimes from "./AvailableTimes";
 
-const BookingForm = ({ availableTimes, updateTimes }) => {
+const BookingForm = ({ 
+    availableTimes, 
+    updateTimes, 
+    submitAPI,
+  }) => {
 
     const [resDate, setResDate] = useState('');
     function handleResDateChange(event) {
-        const {value} = event.target;
+        const { value } = event.target;
         setResDate(value);
+        const selectedDate = new Date(value)
+        updateTimes(selectedDate);
     }
 
     const [resTime, setResTime] = useState();
