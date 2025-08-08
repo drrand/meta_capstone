@@ -77,12 +77,12 @@ const Main = () => {
             case 'UPDATE_TIMES':
                 return action.payload; // Update state with new available times
             default:
-                return availableTimes; // Return current state of action type is not recognized
+                return state; // Return current state of action type is not recognized
         }
     }
 
     // const [state, dispatch] = useReducer(reducer, initialState);
-    const [availableTimes, dispatch] = useReducer(timesReducer, initialTimes);
+    const [state, dispatch] = useReducer(timesReducer, initialTimes);
 
     function updateTimes(date) {
         const newTimes = date;
@@ -95,8 +95,8 @@ const Main = () => {
         <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
-            <Route path="/Reservations" element={<BookingPage />} />
-            <Route path="/ConfirmedBooking" element={<ConfirmedBooking updateTimes={updateTimes}/>} />
+            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state}/>} />
+            <Route path="/ConfirmedBooking" element={<ConfirmedBooking />} />
         </Routes>
     )
 }
