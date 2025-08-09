@@ -1,4 +1,5 @@
 
+
 const ConfirmationBooking = ({ formState: { resDate, resTime, guestNum, occasion } }) => {
 
     return (

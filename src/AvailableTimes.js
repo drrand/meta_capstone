@@ -2,7 +2,6 @@
 
 
 const AvailableTimes = ({availableTimes}) => {
-  
 
     return (
         <>
