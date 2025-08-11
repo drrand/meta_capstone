@@ -41,15 +41,15 @@ const submitAPI = function (formData) {
 
 
 export function initializeTimes(date) {
-    
+
     return fetchAPI(date);
-    
+
 }
 
 const Main = () => {
     // State Lifted from Booking Form
 
-        const [formState, setFormState] = useState({
+    const [formState, setFormState] = useState({
         resDate: '',
         resTime: '',
         guests: '',
@@ -87,13 +87,33 @@ const Main = () => {
         dispatch({ type: 'UPDATE_TIMES', payload: newTimes })
     }
 
+    let bookingArray = [];
+
+    function getBookingData(array) {
+        bookingArray = array;
+    }
+
 
     return (
         <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/OrderOnline" element={<OrderOnline />} />
-            <Route path="/Reservations" element={<BookingPage updateTimes={updateTimes} availableTimes={state} submitForm={submitForm} formState={formState} setFormState={setFormState} />} />
-            <Route path="/ConfirmedBooking" element={<ConfirmedBooking  formState={formState}/>} />
+            <Route path="/"
+                element={<Homepage />} />
+            <Route path="/OrderOnline"
+                element={<OrderOnline />} />
+            <Route path="/Reservations"
+                element={<BookingPage
+                    updateTimes={updateTimes}
+                    availableTimes={state}
+                    submitForm={submitForm}
+                    formState={formState}
+                    setFormState={setFormState}
+                    getBookingData={getBookingData}
+                />} />
+            <Route path="/ConfirmedBooking"
+                element={<ConfirmedBooking
+                    formState={formState}
+                    bookingArray={bookingArray}
+                />} />
         </Routes>
     )
 }

@@ -7,7 +7,7 @@ const BookingForm = ({
     formState,
     setFormState,
     submitAPI,
-    submitForm
+    submitForm,
 }) => {
 
     function handleChange(event) {
@@ -17,32 +17,6 @@ const BookingForm = ({
             {...prevState,[name]: value  } 
         ))
     }
-
-    // const [resDate, setResDate] = useState('');
-    // function handleResDateChange(event) {
-    //     const { value } = event.target;
-    //     setResDate(value);
-    //     const selectedDate = new Date(value);
-    //     updateTimes(selectedDate);
-    // }
-
-    // const [resTime, setResTime] = useState();
-    // function handleResTimeChange(event) {
-    //     const { value } = event.target;
-    //     setResTime(value);
-    // }
-
-    // const [guestNum, setGuestNum] = useState();
-    // function handleGuestNumChange(event) {
-    //     const { value } = event.target;
-    //     setGuestNum(value);
-    // }
-
-    // const [occasion, setOccasion] = useState();
-    // function handleOccasionChange(event) {
-    //     const { value } = event.target;
-    //     setOccasion(value);
-    // }
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -54,12 +28,8 @@ const BookingForm = ({
                 guestNum: formState.guestNum,
                 occasion: formState.occasion
             })
-    }
 
-    // useEffect(() => console.log(resDate), [resDate])
-    // useEffect(() => console.log(resTime), [resTime])
-    // useEffect(() => console.log(guestNum), [guestNum])
-    // useEffect(() => console.log(occasion), [occasion])
+    }
 
     return (
         <form style={{

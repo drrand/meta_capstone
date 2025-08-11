@@ -2,33 +2,32 @@
 
 const ConfirmationBooking = ({ formState: { resDate, resTime, guestNum, occasion } }) => {
 
+    const bookingArray = [
+        {"Date:": resDate},
+        {"Time:": resTime},
+        {"Number of Guests:": guestNum},
+        {"Occasion:": occasion}
+    ];
+
     return (
         <>
             <h1>Booking Confirmed</h1>
             <div className="confirmation-table">
                 <table>
                     <tbody>
-                        <tr>
-                            <td>Date:</td>
-                            <td>{ resDate }</td>
-                        </tr>
-                        <tr>
-                            <td>Time:</td>
-                            <td>{ resTime }</td>
-                        </tr>
-                        <tr>
-                            <td>Number of Guests:</td>
-                            <td>{ guestNum }</td>
-                        </tr>
-                        <tr>
-                            <td>Occasion:</td>
-                            <td>{ occasion }</td>
-                        </tr>
+                        {
+                            bookingArray.map((data) => (
+                                    <tr key={Object.keys(data)}>
+                                        <td>{Object.keys(data)}</td>
+                                        <td>{Object.values(data)}</td>
+                                    </tr>
+                                )
+                            )}
                     </tbody>
                 </table>
             </div>
         </>
-        
+
     )
 }
 
