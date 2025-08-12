@@ -4,7 +4,7 @@ import './Main.css';
 import Homepage from './Homepage';
 import OrderOnline from './OrderOnline';
 import BookingPage from './BookingPage';
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 import ConfirmedBooking from './ConfirmedBooking';
 
 // "API Code" ————————————————————————————————————————————
@@ -48,12 +48,13 @@ export function initializeTimes(date) {
 
 const Main = () => {
     // State Lifted from Booking Form
+    const today = new Date();
 
     const [formState, setFormState] = useState({
-        resDate: '',
+        resDate: today.toDateString(),
         resTime: '',
-        guests: '',
-        occasion: ''
+        guestNum: 1,
+        occasion: 'Birthday'
     });
 
     // End State Lift
@@ -66,7 +67,6 @@ const Main = () => {
         }
     }
 
-    const today = new Date();
 
     const initialTimes = initializeTimes(today);
 

@@ -21,6 +21,8 @@ const BookingForm = ({
     function handleSubmit(event) {
         event.preventDefault();
 
+         window.localStorage.setItem('formData', JSON.stringify(formState), [formState]);
+
         submitForm(
             {
                 resDate: formState.resDate,
@@ -54,14 +56,14 @@ const BookingForm = ({
             >
                 <AvailableTimes availableTimes={availableTimes} />
             </select>
-            <label htmlFor="guests">Number of guests</label>
+            <label htmlFor="guestNum">Number of guests</label>
             <input
-                name="guests"
+                name="guestNum"
                 type="number"
                 placeholder="1"
                 min="1"
                 max="10"
-                id="guests"
+                id="guestNum"
                 onChange={handleChange}
                 value={formState.guestNum}
             />
