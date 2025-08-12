@@ -1,0 +1,34 @@
+.ConfirmedBooking, .confirmation-table {
+    max-width: 600px;
+    margin: auto;
+}
+
+.ConfirmedBooking {
+    text-align: center;
+}
+
+.confirmation-table, .confirmation-table table {
+    max-width: 600px;
+    width:73%;
+    margin: auto;
+
+}
+
+.confirmation-table tr td:last-child {
+    text-align: right;
+}
+
+.confirmation-table {
+    margin-top: 32px;
+    margin-bottom: 64px;
+}
+
+.confirmation-table table {
+    background-color: #f4f4f4;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.confirmation-table tr {
+    height: 32px;
+}

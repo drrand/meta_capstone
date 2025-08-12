@@ -4,7 +4,7 @@ import './Main.css';
 import Homepage from './Homepage';
 import OrderOnline from './OrderOnline';
 import BookingPage from './BookingPage';
-import { useState, useReducer, useEffect } from 'react';
+import { useState, useReducer } from 'react';
 import ConfirmedBooking from './ConfirmedBooking';
 
 // "API Code" ————————————————————————————————————————————

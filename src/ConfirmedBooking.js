@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './ConfirmedBooking.css';
 
 const ConfirmationBooking = ({ formState: { resDate, resTime, guestNum, occasion } }) => {
 
@@ -18,7 +19,7 @@ const ConfirmationBooking = ({ formState: { resDate, resTime, guestNum, occasion
 
     return (
         <>
-            <h1>Booking Confirmed</h1>
+            <h1 className='ConfirmedBooking'>Booking Confirmed!</h1>
             <div className="confirmation-table">
                 <table>
                     <tbody>
