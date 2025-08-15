@@ -1,5 +1,5 @@
-import { Route, Routes, } from 'react-router';
-import { useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router-dom';
 import './Main.css';
 import Homepage from './Homepage';
 import OrderOnline from './OrderOnline';
@@ -92,7 +92,6 @@ const Main = () => {
     function getBookingData(array) {
         bookingArray = array;
     }
-
 
     return (
         <Routes>
