@@ -18,20 +18,34 @@ const BookingForm = ({
         const { name, value } = event.target;
         // Handle form changes
         setFormState((prevState) => (
-            {...prevState,[name]: value  }
+            { ...prevState, [name]: value }
         ))
     }
 
     function handleBlur(event) {
-        const { name }  =  event.target;
-        setTouched((prevTouched) => ({...prevTouched, [name]: true }));
+        const { name } = event.target;
+        setTouched((prevTouched) => ({ ...prevTouched, [name]: true }));
+        console.log(`Blurred: ${name}`);
         validateField(name, formState[name]);
     }
+
+    const validateField = (name, value) => {
+        let error = '';
+        if (name === 'resDate' && new Date(value) < new Date()) {
+            error = 'The reservation date must be for today or in the future';
+        }
+
+        setErrors((prevErrors) => ({
+            ...prevErrors, [name]: error
+        }))
+    };
+
+
 
     function handleSubmit(event) {
         event.preventDefault();
 
-         window.localStorage.setItem('formData', JSON.stringify(formState), [formState]);
+        window.localStorage.setItem('formData', JSON.stringify(formState), [formState]);
 
         submitForm(
             {
@@ -42,18 +56,9 @@ const BookingForm = ({
             })
     }
 
-    const validateField = (name, value) => {
-        let error = '';
-        if ( name === 'resDate' && new Date(value) < new Date()) {
-            error = 'The reservation date must be for today or in the future';
-        }
-
-        setErrors((prevErrors) => ({
-            ...prevErrors, [name]: error
-        })) 
-    };
-
     return (
+        <>
+        <h1></h1>
         <form >
             <label htmlFor="resDate">Choose date</label>
             <input
@@ -65,7 +70,8 @@ const BookingForm = ({
                 onBlur={handleBlur}
                 required
             />
-            { touched.resDate && validateField('resDate', formState.resDate) && <p>{errors.name}</p>}
+            {<p>{errors.resDate}</p>}
+
             <label htmlFor="resTime">Choose time</label>
             <select
                 name="resTime"
@@ -105,8 +111,10 @@ const BookingForm = ({
             <input
                 type="submit"
                 value="Make Your reservation"
-                onClick={(event) => handleSubmit(event)} />
+                onClick={(event) => handleSubmit(event)}
+                disabled={(!touched.resDate || !touched.resTime || !touched.guestNum || !touched.occasion || errors.resDate )} />
         </form>
+        </>
     )
 }
 
