@@ -1,5 +1,6 @@
-
+import { useState } from "react";
 import AvailableTimes from "./AvailableTimes";
+import "./BookingForm.css";
 
 const BookingForm = ({
     availableTimes,
@@ -10,12 +11,21 @@ const BookingForm = ({
     submitForm,
 }) => {
 
+    const [touched, setTouched] = useState(false);
+    const [errors, setErrors] = useState('');
+
     function handleChange(event) {
         const { name, value } = event.target;
         // Handle form changes
         setFormState((prevState) => (
-            {...prevState,[name]: value  } 
+            {...prevState,[name]: value  }
         ))
+    }
+
+    function handleBlur(event) {
+        const { name }  =  event.target;
+        setTouched((prevTouched) => ({...prevTouched, [name]: true }));
+        validateField(name, formState[name]);
     }
 
     function handleSubmit(event) {
@@ -30,15 +40,21 @@ const BookingForm = ({
                 guestNum: formState.guestNum,
                 occasion: formState.occasion
             })
-
     }
 
+    const validateField = (name, value) => {
+        let error = '';
+        if ( name === 'resDate' && new Date(value) < new Date()) {
+            error = 'The reservation date must be for today or in the future';
+        }
+
+        setErrors((prevErrors) => ({
+            ...prevErrors, [name]: error
+        })) 
+    };
+
     return (
-        <form style={{
-            display: 'grid',
-            maxWidth: '200px',
-            gap: '20px'
-        }}>
+        <form >
             <label htmlFor="resDate">Choose date</label>
             <input
                 name="resDate"
@@ -46,13 +62,17 @@ const BookingForm = ({
                 id="resDate"
                 onChange={handleChange}
                 value={formState.resDate}
+                onBlur={handleBlur}
+                required
             />
+            { touched.resDate && validateField('resDate', formState.resDate) && <p>{errors.name}</p>}
             <label htmlFor="resTime">Choose time</label>
             <select
                 name="resTime"
                 id="resTime"
                 onChange={handleChange}
                 value={formState.resTime}
+                onBlur={handleBlur}
             >
                 <AvailableTimes availableTimes={availableTimes} />
             </select>
@@ -66,6 +86,8 @@ const BookingForm = ({
                 id="guestNum"
                 onChange={handleChange}
                 value={formState.guestNum}
+                onBlur={handleBlur}
+                required
             />
             <label htmlFor="occasion">Occasion</label>
             <select
@@ -73,9 +95,12 @@ const BookingForm = ({
                 id="occasion"
                 onChange={handleChange}
                 value={formState.occasion}
+                onBlur={handleBlur}
+                required
             >
                 <option>Birthday</option>
                 <option>Anniversary</option>
+                <option>Just Because</option>
             </select>
             <input
                 type="submit"
