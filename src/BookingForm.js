@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AvailableTimes from "./AvailableTimes";
 import "./BookingForm.css";
 
@@ -20,7 +20,20 @@ const BookingForm = ({
         setFormState((prevState) => (
             { ...prevState, [name]: value }
         ))
+        setTouched((prevTouched) => ({ ...prevTouched, [name]: true }));
+        validateField(name, value);
     }
+
+    // useEffect((formState) => {
+    //     if (formState.length > 0) {
+    //         let error = '';
+    //         if (new Date(formState.resDate) < new Date() ) {
+    //             error = 'The reservation date you selected has past.';
+    //         };
+    //         setErrors((prevErrors) => ({...prevErrors, resDate: error}))
+    //     };
+
+    // }, [touched])
 
     function handleBlur(event) {
         const { name } = event.target;
@@ -67,7 +80,7 @@ const BookingForm = ({
                 id="resDate"
                 onChange={handleChange}
                 value={formState.resDate}
-                onBlur={handleBlur}
+                // onBlur={handleBlur}
                 required
             />
             {<p>{errors.resDate}</p>}
@@ -78,7 +91,8 @@ const BookingForm = ({
                 id="resTime"
                 onChange={handleChange}
                 value={formState.resTime}
-                onBlur={handleBlur}
+                required
+                // onBlur={handleBlur}
             >
                 <AvailableTimes availableTimes={availableTimes} />
             </select>
@@ -92,7 +106,7 @@ const BookingForm = ({
                 id="guestNum"
                 onChange={handleChange}
                 value={formState.guestNum}
-                onBlur={handleBlur}
+                // onBlur={handleBlur}
                 required
             />
             <label htmlFor="occasion">Occasion</label>
@@ -101,7 +115,7 @@ const BookingForm = ({
                 id="occasion"
                 onChange={handleChange}
                 value={formState.occasion}
-                onBlur={handleBlur}
+                // onBlur={handleBlur}
                 required
             >
                 <option>Birthday</option>
