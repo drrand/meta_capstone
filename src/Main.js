@@ -38,8 +38,6 @@ const submitAPI = function (formData) {
 
 // END "API Code"  ————————————————————————————————————————————
 
-
-
 export function initializeTimes(date) {
 
     return fetchAPI(date);

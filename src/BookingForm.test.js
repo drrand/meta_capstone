@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import BookingForm from "./BookingForm"
-
+import { MemoryRouter } from 'react-router';
+import BookingForm from "./BookingForm";
+import Main from "./Main";
 
 const today = new Date();
 
@@ -51,7 +52,11 @@ test('Forms Valid state functions', () => {
 
     const mockSetFunction = jest.fn();
 
-    render(<BookingForm formState={mockFormState} availableTimes={mockAvailableTimes} setFormState={mockSetFunction} />);
+   render(
+    <MemoryRouter initialEntries={['/Reservations']} >
+      <Main />
+    </MemoryRouter>
+  );
 
     const dateInput = screen.getByLabelText('Choose date');
     const timeInput = screen.getByLabelText('Choose time');

@@ -22,6 +22,9 @@ const BookingForm = ({
         ))
         setTouched((prevTouched) => ({ ...prevTouched, [name]: true }));
         validateField(name, value);
+        if (name === 'resDate') {
+            updateTimes(new Date(value));
+        }
     }
 
     // useEffect((formState) => {
@@ -35,12 +38,12 @@ const BookingForm = ({
 
     // }, [touched])
 
-    function handleBlur(event) {
-        const { name } = event.target;
-        setTouched((prevTouched) => ({ ...prevTouched, [name]: true }));
-        console.log(`Blurred: ${name}`);
-        validateField(name, formState[name]);
-    }
+    // function handleBlur(event) {
+    //     const { name } = event.target;
+    //     setTouched((prevTouched) => ({ ...prevTouched, [name]: true }));
+    //     console.log(`Blurred: ${name}`);
+    //     validateField(name, formState[name]);
+    // }
 
     const validateField = (name, value) => {
         let error = '';
