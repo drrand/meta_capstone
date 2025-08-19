@@ -78,7 +78,7 @@ test('Read from Local Storage', async () => {
         // expect(confData[1]).toBe(testTime);
         // expect(confData[2]).toBe(testGuests);
         // expect(confData[3]).toBe(testOccasion);
-
+ 
 });
 
 
