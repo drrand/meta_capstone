@@ -8,7 +8,7 @@ const Testimonials = () => {
     return (
        <section id='testimonials'>
                 <div className='section-wrapper'>
-                    <h3>Testimonials</h3>
+                    <h1>Testimonials</h1>
                     <div className='testimonial_row'>
                         <CardTestimonial
                             src={review1}

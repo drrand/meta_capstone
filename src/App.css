@@ -57,3 +57,17 @@ li {
   margin: none;
   padding: none;
 }
+
+button {
+  background: #f4ce14;
+  color: #495e57;
+  border-radius: 16px;
+  border: none;
+  height: 60px;
+  width: 200px;
+
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Karla;
+  margin: 1rem 0;
+}

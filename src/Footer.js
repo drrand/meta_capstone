@@ -6,7 +6,7 @@ const Footer = () => {
         <footer>
             <img src={logo} alt="Little Lemon Logo"></img>
             <div>
-                Navigation
+                <p>Navigation</p>
                 <ul>
                     <li>Home</li>
                     <li>About</li>
@@ -17,7 +17,7 @@ const Footer = () => {
                 </ul>
             </div>
             <div>
-                Contact
+                <p>Contact</p>
                 <ul>
                     <li>Address</li>
                     <li>Phone Number</li>
@@ -25,7 +25,7 @@ const Footer = () => {
                 </ul>
             </div>
             <div>
-                Social Media
+                <p>Social Media</p>
                 <ul>
                     <li>Social Site 1</li>
                     <li>Social Site 2</li>

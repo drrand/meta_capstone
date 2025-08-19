@@ -1,7 +1,9 @@
 form {
-    width: 600px;
+    max-width: 600px;
     margin: auto;
     display: grid;
+    margin-bottom: 80px;
+    padding: 0 2rem;
     
 }
 
@@ -24,6 +26,9 @@ input ~ p {
 }
 
 #BookingFormTitle {
-    margin: auto;
     width: fit-content;
+    text-align: center;
+    padding: 0 2rem;
+    line-height: 48px;
+    margin: 2rem auto; 
 }

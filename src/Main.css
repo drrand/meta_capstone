@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 75px;
   position: relative;
+  flex-wrap: wrap-reverse;
 }
 
 .hero .column1 {
@@ -31,17 +32,8 @@
   top: 36px;
 }
 
-button {
-  background: #f4ce14;
-  color: #495e57;
-  border-radius: 16px;
-  border: none;
-  height: 60px;
-  width: 200px;
-
-  font-size: 18px;
-  font-weight: 500;
-  font-family: Karla;
+.hero button {
+  margin-bottom: 2rem;
 }
 
 .Specials {
@@ -52,16 +44,19 @@ button {
 .first-row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap-reverse;
 }
 
 .second-row {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: clamp(1rem, 1.5rem, 2rem);
+  flex-wrap: wrap;
 }
 
 .section-wrapper {
   width: 100%;
-  max-width: 900px;
+  /* max-width: 900px; */
 }
 
 .section-wrapper h3 {
@@ -75,7 +70,11 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0;
+  padding: 40px 2rem;
+  gap: clamp(1rem, 1.5rem, 2rem);
+  .section-wrapper {
+    max-width: 900px; 
+  }
 }
 
 .testimonial_row {
@@ -83,7 +82,9 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  /* gap: 12px; */
+  gap: clamp(.5rem, .75rem, 2rem);
+    flex-wrap: wrap;
 }
 
 .about {
@@ -96,6 +97,10 @@ button {
   h5,
   p {
     color: white;
+    max-width: 60ch;
+  }
+  img {
+    width: 100%;
   }
 }
 
@@ -108,4 +113,10 @@ button {
   justify-content: center;
   gap: 75px;
   position: relative;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+}
+
+section {
+  padding: 0 1.5rem;
 }
