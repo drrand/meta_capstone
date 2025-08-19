@@ -19,7 +19,7 @@ test('Confirmation Page is populated', () => {
 
     fireEvent.change(dateInput, { target: { value: '2049-12-12'}});
 
-    fireEvent.change(timeInput, { target: { value: '23:30'} });
+    fireEvent.change(timeInput, { target: { value: '23:00'} });
 
     fireEvent.change(guestsInput, { target: { value: 2 }});
 
