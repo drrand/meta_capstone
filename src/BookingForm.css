@@ -22,3 +22,8 @@ input ~ p {
     color:darkred;
 
 }
+
+#BookingFormTitle {
+    margin: auto;
+    width: fit-content;
+}

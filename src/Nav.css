@@ -19,4 +19,9 @@ nav li, .navEl {
   line-height: normal;
   text-transform: uppercase;
   text-decoration: none;
+  transition: border-bottom 200ms ease-in-out;
+}
+
+.currentPage {
+  border-bottom: 4px solid #333;
 }

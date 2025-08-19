@@ -79,7 +79,7 @@ const BookingForm = ({
 
     return (
         <>
-        <h1></h1>
+        <h1 id="BookingFormTitle">Reserve a Table</h1>
         <form >
             <label htmlFor="resDate">Choose date</label>
             <input
@@ -134,7 +134,9 @@ const BookingForm = ({
                 type="submit"
                 value="Make Your reservation"
                 onClick={(event) => handleSubmit(event)}
-                disabled={(!touched.resDate || !touched.resTime || !touched.guestNum || !touched.occasion || errors.resDate )} />
+                disabled={(!touched.resDate || !touched.resTime || !touched.guestNum || !touched.occasion || errors.resDate )} 
+                aria-label="On Click"
+                />
         </form>
         </>
     )
