@@ -47,7 +47,10 @@ const BookingForm = ({
 
     const validateField = (name, value) => {
         let error = '';
-        if (name === 'resDate' && new Date(value) < new Date()) {
+        const inputDate = new Date(value).toISOString().split('T')[0];
+        const today = new Date().toISOString().split('T')[0];
+
+        if (name === 'resDate' && inputDate < today) {
             error = 'The reservation date must be for today or in the future';
         }
 
@@ -55,8 +58,6 @@ const BookingForm = ({
             ...prevErrors, [name]: error
         }))
     };
-
-
 
     function handleSubmit(event) {
         event.preventDefault();
