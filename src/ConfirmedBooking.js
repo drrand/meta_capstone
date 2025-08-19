@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import './ConfirmedBooking.css';
 
-const ConfirmationBooking = ({ formState: { resDate, resTime, guestNum, occasion } }) => {
+const ConfirmationBooking = () => {
 
     const [bookingData, setBookingData] = useState('');
 
     useEffect(()=> {
-        setBookingData(JSON.parse(window.localStorage.getItem('formData')))
-        console.log(bookingData);
+        const bookingData = window.localStorage.getItem('formData');
+        if (bookingData) {
+            setBookingData(JSON.parse(bookingData))
+            console.log(bookingData);
+        }
 }, []);
 
     const bookingArray = [

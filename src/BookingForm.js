@@ -66,7 +66,7 @@ const BookingForm = ({
     function handleSubmit(event) {
         event.preventDefault();
 
-        window.localStorage.setItem('formData', JSON.stringify(formState), [formState]);
+        window.localStorage.setItem('formData', JSON.stringify(formState));
 
         submitForm(
             {
